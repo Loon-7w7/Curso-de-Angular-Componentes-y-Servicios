@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Producto } from './Models/prodcut.module';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-store';
+    imageParent = '';
+    imgParent = '';
+  showImg = true;
+  title = 'Hola';
+
+    onload(image:string){
+      console.log('logPadre',image);
+    }
+    toggleImg() {
+      this.showImg = !this.showImg;
+    }
 }
