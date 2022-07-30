@@ -15,7 +15,7 @@ export class StoreService {
     this.MyShopingCart.push(product);
   }
   getTotol(){
-    return  this.MyShopingCart.reduce((sum,item) => sum + item.precio,0)
+    return  this.MyShopingCart.reduce((sum,item) => sum + item.price,0)
   }
   getShopingCart (){
     return this.MyShopingCart;
