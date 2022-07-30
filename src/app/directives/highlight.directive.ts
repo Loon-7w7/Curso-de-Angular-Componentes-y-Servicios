@@ -9,7 +9,7 @@ export class HighlightDirective {
     this._elementRef.nativeElement.style.backgroundColor = '#f0f0f0';
   }
   @HostListener('mouseleave') onMoiseLeave (){
-    this._elementRef.nativeElement.style.backgroundColor = 'traparent';
+    this._elementRef.nativeElement.style.backgroundColor = '';
   }
   constructor(
     private _elementRef: ElementRef
