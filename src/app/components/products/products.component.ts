@@ -8,6 +8,9 @@ import { Producto } from 'src/app/Models/prodcut.module';
 })
 export class ProductsComponent implements OnInit {
 
+  MyShopingCart:Producto[]=[];
+  Total:number = 0;
+
   products:Producto[]= [
     {
       id: 1,
@@ -50,6 +53,10 @@ export class ProductsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  OnAddToShopingCart(product: Producto): void {
+    this.MyShopingCart.push(product);
+    this.Total = this.MyShopingCart.reduce((sum,item) => sum + item.precio,0)
   }
 
 }
