@@ -6,7 +6,7 @@ import{ Producto }from '../../Models/prodcut.module';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent  {
 
 
   @Input() product: Producto={
@@ -21,8 +21,7 @@ export class ProductComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+
   OnAddToCart(): void {
     this.addProduct.emit(this.product);
   }
