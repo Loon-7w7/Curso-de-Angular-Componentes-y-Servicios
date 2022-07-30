@@ -3,5 +3,6 @@
   <app-img [img]="product.image"></app-img>
   <h2>{{ product.title }}</h2>
   <p>Precio: {{ product.price | currency:'MXN ' }}</p>
+  <p appHighlight>{{product.description}}</p>
   <button (click)="OnAddToCart()">Add cart</button>
 </div>
