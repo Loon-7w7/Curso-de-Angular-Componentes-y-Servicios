@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Product } from './Models/prodcut.model';
 import { UsersService } from './services/users.service';
 import { AuthService } from './services/auth.service';
-import{CreateUserDTO}from './Models/user.model'
+import{CreateUserDTO, User}from './Models/user.model'
+
 
 
 @Component({
@@ -14,7 +15,8 @@ export class AppComponent {
     imageParent = '';
     imgParent = '';
   showImg = true;
-  title = 'Hola';
+  token = '';
+
   constructor(
     private usersService: UsersService,
     private auth:AuthService
@@ -37,10 +39,5 @@ export class AppComponent {
         console.log(rta);
       });
     }
-    loginUser(): void {
-      this.auth.login('loon@mail.com','123456')
-        .subscribe((res) => {
-          console.log('platzi_token', res.access_token);
-        });
-    }
+
 }
