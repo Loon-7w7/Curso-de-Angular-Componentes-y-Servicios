@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product,CreateProductDTO,UpdateProductDTO } from 'src/app/Models/prodcut.module';
 import { StoreService } from 'src/app/services/store.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-products',
@@ -64,7 +65,20 @@ export class ProductsComponent implements OnInit {
       this.statusDetail = 'error';
     })
   }
-
+  readAndUpdate(id: string) {
+    this.productService.getProduct(id)
+    .pipe(
+      switchMap((product) => this.productService.update(product.id, {title: 'change'})),
+    )
+    .subscribe(data => {
+      console.log(data);
+    });
+    this.productService.fetchReadAndUpdate(id, {title: 'change'})
+    .subscribe(response => {
+      const read = response[0];
+      const update = response[1];
+    })
+  }
   createNewProduct() {
     const product: CreateProductDTO = {
       title: 'Nuevo prodcuto',
