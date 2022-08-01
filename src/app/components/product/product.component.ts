@@ -1,5 +1,5 @@
 import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
-import{ Product }from '../../Models/prodcut.module';
+import{ Product,CreateProductDTO }from '../../Models/prodcut.module';
 
 @Component({
   selector: 'app-product',
