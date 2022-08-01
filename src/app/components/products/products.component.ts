@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product,CreateProductDTO,UpdateProductDTO } from 'src/app/Models/prodcut.module';
+import { Product,CreateProductDTO,UpdateProductDTO } from 'src/app/Models/prodcut.model';
 import { StoreService } from 'src/app/services/store.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { switchMap } from 'rxjs/operators';

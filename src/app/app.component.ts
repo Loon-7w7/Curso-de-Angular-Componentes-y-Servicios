@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { Product } from './Models/prodcut.module';
+import { Product } from './Models/prodcut.model';
+import { UsersService } from './services/users.service';
+import { AuthService } from './services/auth.service';
+import{CreateUserDTO}from './Models/user.model'
 
 
 @Component({
@@ -12,11 +15,32 @@ export class AppComponent {
     imgParent = '';
   showImg = true;
   title = 'Hola';
+  constructor(
+    private usersService: UsersService,
+    private auth:AuthService
+  ) {
 
+  }
     onload(image:string){
       console.log('logPadre',image);
     }
     toggleImg() {
       this.showImg = !this.showImg;
+    }
+    createUser() {
+      this.usersService.create({
+        name: 'Loom',
+        email: 'loon@mail.com',
+        password: '123456'
+      })
+      .subscribe(rta => {
+        console.log(rta);
+      });
+    }
+    loginUser(): void {
+      this.auth.login('loon@mail.com','123456')
+        .subscribe((res) => {
+          console.log('platzi_token', res.access_token);
+        });
     }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
-import { Product,CreateProductDTO,UpdateProductDTO } from '../Models/prodcut.module';
+import { Product,CreateProductDTO,UpdateProductDTO } from '../Models/prodcut.model';
 import { retry, catchError,map } from 'rxjs/operators';
 import { throwError, zip } from 'rxjs';
 import { environment } from 'src/environments/environment';

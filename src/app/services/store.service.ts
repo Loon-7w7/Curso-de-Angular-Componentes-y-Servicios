@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../Models/prodcut.module';
+import { Product } from '../Models/prodcut.model';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
