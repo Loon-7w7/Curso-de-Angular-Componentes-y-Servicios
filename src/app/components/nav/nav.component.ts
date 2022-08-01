@@ -12,7 +12,6 @@ export class NavComponent implements OnInit {
 
   activeMenu = false;
   counter = 0;
-  token ='';
   profile: User | null = null;
   constructor(
     private storeService: StoreService,
@@ -31,16 +30,10 @@ export class NavComponent implements OnInit {
     this.activeMenu = !this.activeMenu;
   }
   loginUser(): void {
-    this.authService.login('loon@mail.com','123456')
-      .subscribe((res) => {
-        this.token = res.access_token;
-        this.getProfile();
+    this.authService.loginAndGet('sebas@mail.com', '1212')
+      .subscribe((user) => {
+        this.profile = user
       });
   }
-  getProfile() {
-    this.authService.profile(this.token)
-    .subscribe(perfil =>{
-      this.profile = perfil
-    })
-  }
+
 }
