@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import{HttpClient} from '@angular/common/http';
-import { Producto } from '../Models/prodcut.module';
+import { Product } from '../Models/prodcut.module';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +11,6 @@ export class ProductsService {
   ) { }
 
   getAllProducts() {
-    return this.http.get<Producto[]>("https://fakestoreapi.com/products");
+    return this.http.get<Product[]>("https://young-sands-07814.herokuapp.com/api/products/");
   }
 }

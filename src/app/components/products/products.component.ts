@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from 'src/app/Models/prodcut.module';
+import { Product } from 'src/app/Models/prodcut.module';
 import { StoreService } from 'src/app/services/store.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -10,10 +10,10 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
 
-  MyShopingCart:Producto[]=[];
+  MyShopingCart:Product[]=[];
   Total:number = 0;
 
-  products:Producto[]= [];
+  products:Product[]= [];
 
   constructor(
     private storService: StoreService,
@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
       this.products = data;
     })
   }
-  OnAddToShopingCart(product: Producto): void {
+  OnAddToShopingCart(product: Product): void {
     this.storService.addProduct(product);
     this.Total = this.storService.getTotol();
   }
