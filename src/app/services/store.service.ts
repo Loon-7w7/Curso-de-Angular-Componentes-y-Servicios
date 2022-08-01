@@ -7,22 +7,24 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class StoreService {
 
-  private MyShopingCart:Product[]=[];
-  private MyCart = new BehaviorSubject<Product[]>([]) ;
+  private myShoppingCart:Product[]=[];
+  private myCart = new BehaviorSubject<Product[]>([]) ;
 
-  MyCart$ = this.MyCart.asObservable();
+  myCart$ = this.myCart.asObservable();
 
   constructor(
   ) { }
 
-  addProduct(product: Product){
-    this.MyShopingCart.push(product);
-    this.MyCart.next(this.MyShopingCart);
+  addProduct(product: Product) {
+    this.myShoppingCart.push(product);
+    this.myCart.next(this.myShoppingCart);
   }
-  getTotol(){
-    return  this.MyShopingCart.reduce((sum,item) => sum + item.price,0)
+
+  getShoppingCart() {
+    return this.myShoppingCart;
   }
-  getShopingCart (){
-    return this.MyShopingCart;
+
+  getTotal() {
+    return this.myShoppingCart.reduce((sum, item) => sum + item.price, 0);
   }
 }

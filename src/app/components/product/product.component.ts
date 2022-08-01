@@ -20,13 +20,18 @@ export class ProductComponent  {
       name: '',
     },
   };
-  @Output() addProduct = new EventEmitter<Product>();
+  @Output() addedProduct = new EventEmitter<Product>();
+  @Output() showProduct = new EventEmitter<string>();
 
   constructor() { }
 
 
-  OnAddToCart(): void {
-    this.addProduct.emit(this.product);
+  onAddToCart() {
+    this.addedProduct.emit(this.product);
+  }
+
+  onShowDetail() {
+    this.showProduct.emit(this.product.id);
   }
 
 }
